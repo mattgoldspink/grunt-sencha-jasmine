@@ -46,6 +46,9 @@
             jasmine.getEnv().addReporter(reporter);
 
             Ext.onReady(function() {
+                Ext.Loader.setPath(
+                    <%= options.extLoaderPaths %>
+                );
                 jasmineEnv.execute();
             });
 

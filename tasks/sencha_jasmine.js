@@ -10,15 +10,14 @@
 
 module.exports = function(grunt) {
 
-    grunt.loadNpmTasks('grunt-contrib-jasmine');
+    grunt.loadTasks(__dirname + '/../node_modules/grunt-contrib-jasmine/tasks');
     var task = grunt.renameTask('jasmine', 'sencha_jasmine_wrapper');
-
-
 
     grunt.registerMultiTask('sencha_jasmine', 'Your task description goes here.', function() {
         // Merge task-specific and/or target-specific options with these defaults.
         var options = this.options({
             extFramework   : undefined,
+            extLoaderPaths   : {},
             template       : __dirname + '/templates/_ExtJasmine.tmpl',
             templateOptions : {
 
@@ -34,6 +33,7 @@ module.exports = function(grunt) {
             options: options
         };
         conf[this.target].options.templateOptions.extFramework = options.extFramework;
+        conf[this.target].options.templateOptions.extLoaderPaths = options.extLoaderPaths;
 
         grunt.config.set('sencha_jasmine_wrapper', conf);
         debugger
