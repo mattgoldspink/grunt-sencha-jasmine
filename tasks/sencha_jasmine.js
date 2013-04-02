@@ -33,10 +33,9 @@ module.exports = function(grunt) {
             options: options
         };
         conf[this.target].options.templateOptions.extFramework = options.extFramework;
-        conf[this.target].options.templateOptions.extLoaderPaths = options.extLoaderPaths;
+        conf[this.target].options.templateOptions.extLoaderPaths = JSON.stringify(options.extLoaderPaths);
 
         grunt.config.set('sencha_jasmine_wrapper', conf);
-        debugger
         grunt.task.run(['sencha_jasmine_wrapper']);
     });
     //grunt.registerTask('sencha_jasmine', ['sencha_jasmine_action', 'sencha_jasmine_wrapper']);
