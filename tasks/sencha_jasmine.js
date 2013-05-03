@@ -8,10 +8,19 @@
 
 'use strict';
 
+var path = require('path');
+
 module.exports = function(grunt) {
 
-    grunt.loadTasks(__dirname + '/../node_modules/grunt-contrib-jasmine/tasks');
+    var gruntJasminePath = path.dirname(require.resolve('grunt-contrib-jasmine'));
+    grunt.loadTasks(path.join(gruntJasminePath, 'tasks'));
     var task = grunt.renameTask('jasmine', 'sencha_jasmine_wrapper');
+
+    function parseNameArgsIntoFormatForWrapper(nameArgs) {
+        var splitNameArgs = nameArgs.split(':');
+        splitNameArgs[0] = 'sencha_jasmine_wrapper';
+        return splitNameArgs.join(':');
+    }
 
     grunt.registerMultiTask('sencha_jasmine', 'Your task description goes here.', function() {
         // Merge task-specific and/or target-specific options with these defaults.
@@ -37,7 +46,8 @@ module.exports = function(grunt) {
 
         grunt.config.set('sencha_jasmine_wrapper', conf);
         debugger
-        grunt.task.run(['sencha_jasmine_wrapper']);
+
+        grunt.task.run([parseNameArgsIntoFormatForWrapper(this.nameArgs)]);
     });
     //grunt.registerTask('sencha_jasmine', ['sencha_jasmine_action', 'sencha_jasmine_wrapper']);
 };
