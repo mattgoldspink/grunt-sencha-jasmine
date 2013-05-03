@@ -1,7 +1,7 @@
 {
   "name": "grunt-sencha-jasmine",
   "description": "A Grunt task to make Jasmine testing on Ext.js and Sencha Touch projects easier",
-  "version": "0.2.1",
+  "version": "0.2.3",
   "homepage": "https://github.com/mattgoldspink/grunt-sencha-jasmine",
   "author": {
     "name": "Matt Goldspink",
@@ -27,6 +27,9 @@
   },
   "scripts": {
     "test": "grunt test"
+  },
+  "dependencies" : {
+    "grunt-contrib-jasmine": "~0.4.1"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.1.1",
