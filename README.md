@@ -72,6 +72,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+_0.2.4_ Updating to grunt-contrib-jasmine 0.5.2 by default
 _0.2.3_ Fixed bugs #1 and #2
 _0.2.0_ Add support for the `extLoaderPaths` config property and fix bug whereby only a locally installed grunt-contrib-jasmine would get picked up.
 _0.1.0_ First release which supports the `extFramework` property
