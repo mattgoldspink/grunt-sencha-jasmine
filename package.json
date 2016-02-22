@@ -28,7 +28,7 @@
   "scripts": {
     "test": "grunt test"
   },
-  "dependencies" : {
+  "dependencies": {
     "grunt-contrib-jasmine": "~0.9.1"
   },
   "devDependencies": {
@@ -38,7 +38,7 @@
     "grunt": "~0.4.1"
   },
   "peerDependencies": {
-    "grunt": "~0.4.1"
+    "grunt": ">=0.4.0"
   },
   "keywords": [
     "gruntplugin"
