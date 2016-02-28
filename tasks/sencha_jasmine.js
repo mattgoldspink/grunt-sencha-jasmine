@@ -27,6 +27,7 @@ module.exports = function(grunt) {
         var options = this.options({
             extFramework   : undefined,
             extLoaderPaths   : {},
+            extControllers : [],
             template       : __dirname + '/templates/_ExtJasmine.tmpl',
             templateOptions : {
 
@@ -43,6 +44,7 @@ module.exports = function(grunt) {
         };
         conf[this.target].options.templateOptions.extFramework = options.extFramework;
         conf[this.target].options.templateOptions.extLoaderPaths = JSON.stringify(options.extLoaderPaths);
+        conf[this.target].options.templateOptions.extControllers = JSON.stringify(options.extControllers);
 
         grunt.config.set('sencha_jasmine_wrapper', conf);
         grunt.task.run([parseNameArgsIntoFormatForWrapper(this.nameArgs)]);
